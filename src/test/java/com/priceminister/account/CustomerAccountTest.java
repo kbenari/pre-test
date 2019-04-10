@@ -1,11 +1,14 @@
 package com.priceminister.account;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import com.priceminister.account.implementation.*;
+import com.priceminister.account.implementation.CustomerAccount;
 
 
 /**
@@ -36,7 +39,8 @@ public class CustomerAccountTest {
      */
     @Test
     public void testAccountWithoutMoneyHasZeroBalance() {
-        fail("not yet implemented");
+        assertTrue( 0 ==customerAccount.getBalance());
+        
     }
     
     /**
@@ -44,7 +48,9 @@ public class CustomerAccountTest {
      */
     @Test
     public void testAddPositiveAmount() {
-        fail("not yet implemented");
+    	Double addedAmount = 20d;
+    	customerAccount.add(addedAmount);
+    	assertTrue( addedAmount == customerAccount.getBalance());
     }
     
     /**
@@ -53,7 +59,15 @@ public class CustomerAccountTest {
      */
     @Test
     public void testWithdrawAndReportBalanceIllegalBalance() {
-        fail("not yet implemented");
+    	Double withdrawnAmount = 20d;
+    	
+    	try {
+			customerAccount.withdrawAndReportBalance(withdrawnAmount, rule);
+			fail("Expected IllegalBalanceException");
+		} catch (IllegalBalanceException e) {
+			assertEquals(e.getMessage(), "");
+		}
+    	 
     }
     
     // Also implement missing unit tests for the above functionalities.
