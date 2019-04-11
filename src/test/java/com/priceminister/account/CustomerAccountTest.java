@@ -1,12 +1,14 @@
 package com.priceminister.account;
 
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
+import java.math.BigDecimal;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import com.priceminister.account.implementation.CustomerAccount;
 
@@ -39,7 +41,7 @@ public class CustomerAccountTest {
      */
     @Test
     public void testAccountWithoutMoneyHasZeroBalance() {
-        assertTrue( 0 ==customerAccount.getBalance());
+        assertTrue( BigDecimal.ZERO.compareTo(customerAccount.getBalance())==0);
         
     }
     
@@ -48,25 +50,25 @@ public class CustomerAccountTest {
      */
     @Test
     public void testAddPositiveAmount() {
-    	Double addedAmount = 20d;
+    	BigDecimal addedAmount = new BigDecimal(20);
     	customerAccount.add(addedAmount);
-    	assertTrue( addedAmount == customerAccount.getBalance());
+    	assertTrue( addedAmount.compareTo(customerAccount.getBalance())==0);
     }
     
     /**
      * Tests that an illegal withdrawal throws the expected exception.
      * Use the logic contained in CustomerAccountRule; feel free to refactor the existing code.
      */
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+    
     @Test
-    public void testWithdrawAndReportBalanceIllegalBalance() {
-    	Double withdrawnAmount = 20d;
+    public void testWithdrawAndReportBalanceIllegalBalance() throws IllegalBalanceException {
+    	BigDecimal withdrawnAmount = new BigDecimal(20);
     	
-    	try {
-			customerAccount.withdrawAndReportBalance(withdrawnAmount, rule);
-			fail("Expected IllegalBalanceException");
-		} catch (IllegalBalanceException e) {
-			assertEquals(e.getMessage(), "");
-		}
+    	thrown.expect(IllegalBalanceException.class);
+    	customerAccount.withdrawAndReportBalance(withdrawnAmount, rule);
+		
     	 
     }
     

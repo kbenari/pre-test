@@ -14,7 +14,9 @@
  */
 package com.priceminister.account.implementation;
 
-import com.priceminister.account.*;
+import java.math.BigDecimal;
+
+import com.priceminister.account.AccountRule;
 
 
 public class CustomerAccountRule implements AccountRule {
@@ -22,8 +24,8 @@ public class CustomerAccountRule implements AccountRule {
     /* (non-Javadoc)
      * @see com.priceminister.account.AccountRule#withdrawPermitted(java.lang.Double)
      */
-    public boolean withdrawPermitted(Double resultingAccountBalance) {
-        return resultingAccountBalance >= 0;
+    public boolean withdrawPermitted(BigDecimal resultingAccountBalance) {
+        return BigDecimal.ZERO.compareTo(resultingAccountBalance)>0 ;
     }
 
 }
