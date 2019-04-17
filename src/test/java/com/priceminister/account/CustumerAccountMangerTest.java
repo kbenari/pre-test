@@ -58,7 +58,7 @@ public class CustumerAccountMangerTest {
 
 	/**
 	 * Tests that an illegal withdrawal throws the expected exception. Use the logic
-	 * contained in CustomerAccountRule; feel free to refactor the existing code.
+	 * contained in CustomerAccountRule;
 	 */
 	@Test(expected = IllegalBalanceException.class)
 	public void testWithdrawAndReportBalanceIllegalBalance() throws IllegalBalanceException {

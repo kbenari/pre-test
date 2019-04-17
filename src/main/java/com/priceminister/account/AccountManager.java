@@ -10,7 +10,7 @@ import com.priceminister.account.exception.IllegalBalanceException;
 
 /**
  * @author kben
- *
+ * this class manage operation on the account 
  */
 public interface AccountManager<T extends Account> {
 
@@ -24,7 +24,7 @@ public interface AccountManager<T extends Account> {
      */
     public BigDecimal withdrawAndReportBalance(T account , BigDecimal withdrawnAmount) throws IllegalBalanceException;
 
-    
+    //TODO add other methods like add amount ( i keep it like this to respect Kiss and YAGNI)
    
     
 
