@@ -25,7 +25,7 @@ public class CustomerAccountRule implements AccountRule {
      * @see com.priceminister.account.AccountRule#withdrawPermitted(java.lang.Double)
      */
     public boolean withdrawPermitted(BigDecimal resultingAccountBalance) {
-        return BigDecimal.ZERO.compareTo(resultingAccountBalance)>0 ;
+        return BigDecimal.ZERO.compareTo(resultingAccountBalance)<=0 ;
     }
 
 }

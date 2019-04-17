@@ -2,28 +2,23 @@ package com.priceminister.account.implementation;
 
 import java.math.BigDecimal;
 
-import com.priceminister.account.*;
+import com.priceminister.account.Account;
 
 
 public class CustomerAccount implements Account {
-
-	@Override
-	public void add(BigDecimal addedAmount) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public BigDecimal withdrawAndReportBalance(BigDecimal withdrawnAmount, AccountRule rule)
-			throws IllegalBalanceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private BigDecimal balance = BigDecimal.ZERO;
 
 	@Override
 	public BigDecimal getBalance() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.balance;
 	}
+
+	@Override
+	public void add(BigDecimal addedAmount)  {
+		this.balance = balance.add(addedAmount);
+	}
+
+	
+	
 
 }
