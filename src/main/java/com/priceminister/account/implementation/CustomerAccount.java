@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import com.priceminister.account.Account;
 
-
 public class CustomerAccount implements Account {
 	private BigDecimal balance = BigDecimal.ZERO;
 
@@ -14,11 +13,8 @@ public class CustomerAccount implements Account {
 	}
 
 	@Override
-	public void add(BigDecimal addedAmount)  {
+	public void add(BigDecimal addedAmount) {
 		this.balance = balance.add(addedAmount);
 	}
-
-	
-	
 
 }

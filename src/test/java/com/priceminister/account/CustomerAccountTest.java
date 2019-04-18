@@ -56,15 +56,29 @@ public class CustomerAccountTest {
 	}
 		
 	/**
-	 * withdrow money to the account and checks that the new balance is as expected.
+	 * Withdraw money to the account and checks that the new balance is as expected.
 	 */
 	@Test
 	public void testWithdrowAmount()  {
-		BigDecimal addedAmount = new BigDecimal(20);
-		customerAccount.add(addedAmount);
-		assertTrue(addedAmount.compareTo(customerAccount.getBalance()) == 0);
+
+		
+		BigDecimal withdrawedAmount = new BigDecimal(-20);
+		customerAccount.add(withdrawedAmount);
+		
+		assertTrue(withdrawedAmount.compareTo(customerAccount.getBalance()) == 0);
 	}
 
-	
+	/**
+	 * add money to the account  after Withdraw money from it  and checks that the new balance is as expected.
+	 */
+	@Test
+	public void testAddAndWithdrowAmount()  {
+
+		BigDecimal addedAmount = new BigDecimal(50);
+		customerAccount.add(addedAmount);
+		BigDecimal withdrawedAmount = new BigDecimal(-20);
+		customerAccount.add(withdrawedAmount);
+		assertTrue(new BigDecimal(30).compareTo(customerAccount.getBalance()) == 0);
+	}
 
 }

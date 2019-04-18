@@ -10,7 +10,7 @@ import com.priceminister.account.exception.IllegalBalanceException;
 
 /**
  * @author kben
- * this class manage operation on the account 
+ * this class manages operation on the account 
  */
 public interface AccountManager<T extends Account> {
 

@@ -62,10 +62,10 @@ public class CustumerAccountMangerTest {
 	 */
 	@Test(expected = IllegalBalanceException.class)
 	public void testWithdrawAndReportBalanceIllegalBalance() throws IllegalBalanceException {
-		
-		Mockito.when(customerAccount.getBalance()).thenReturn(new BigDecimal(10)); 
+
+		Mockito.when(customerAccount.getBalance()).thenReturn(new BigDecimal(10));
 		BigDecimal withdrawnAmount = new BigDecimal(20);
-		
+
 		customerAccountManager.withdrawAndReportBalance(customerAccount, withdrawnAmount);
 
 	}
@@ -80,7 +80,7 @@ public class CustumerAccountMangerTest {
 		BigDecimal expectedAmount = new BigDecimal(30);
 		BigDecimal resultAmount = customerAccountManager.withdrawAndReportBalance(customerAccount, withdrawnAmount);
 
-		assertTrue(expectedAmount.compareTo(resultAmount)==0);
+		assertTrue(expectedAmount.compareTo(resultAmount) == 0);
 	}
 
 }
