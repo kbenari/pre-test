@@ -3,7 +3,7 @@ Bonjour,
 Je profite de ce fichier pour partager avec vous mes idées sur cette exercice:
 1- Mon objectif était de répondre à votre exercice tout en respectant , SOLID , KISS et YAGNI
  a- solid : 
-	- J'ai enlever le withdraw de la classe customer account car elle contient une règle métier que je la trouve en dehors de la responsabilité
+	- J'ai enlevé le withdraw de la classe customer account car elle contient une règle métier que je la trouve en dehors de la responsabilité
 	de cette classe que la considère comme un record (dto si vous voulez), les règles métiers doivent être incluses dans un manager qui manipule les comptes et les règles.
 	- Pour l'interface agregation je la trouve déjà bien appliquée dans la base du code, j'avais juste à suivre en ajoutant le manager 
 	- pour l'injection de dépendance je l'ai appliqué sur le manager que je considère comme un service , 
